@@ -17,7 +17,8 @@ function Gameboard() {
     if(board[row][column] !== 0){
       return;
     }
-    
+    board[row][column].addMark(player);
+  };
 
   const printBoard = () => {
     const boardWithCellValues = board.map((row) =>
