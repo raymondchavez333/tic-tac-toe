@@ -44,3 +44,54 @@ function Cell() {
     getValue,
   };
 }
+
+function GameController(
+  playerOneName = "Player One",
+  playerTwoName = "Player Two"
+) {
+  const board = Gameboard();
+
+  const players = [
+    {
+      name: playerOneName,
+      mark: 1,
+    },
+    {
+      name: playerTwoName,
+      mark: 2,
+    },
+  ];
+
+  let activePlayer = players[0];
+
+  const switchPlayerTurn = () => {
+    activePlayer = activePlayer === players[0] ? players[1] : players[0];
+  };
+  const getActivePlayer = () => activePlayer;
+
+  const printNewRound = () => {
+    board.printBoard();
+    console.log(`${getActivePlayer().name}'s turn.`);
+  };
+
+  const playRound = (row, column) => {
+    console.log(
+      `Writing ${getActivePlayer().name}'s mark into row ${row} and column ${column}...`
+    );
+    board.inputMark(row, column, getActivePlayer().mark);
+
+    /*  This is where we would check for a winner and handle that logic,
+          such as a win message. */
+
+    switchPlayerTurn();
+    printNewRound();
+  };
+
+  printNewRound();
+
+  return {
+    playRound,
+    getActivePlayer,
+    getBoard: board.getBoard,
+  };
+}
