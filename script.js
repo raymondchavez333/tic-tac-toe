@@ -93,9 +93,37 @@ function GameController(
 
     console.log(boardValues);
 
+    // three consecutive by row for player 1
     if (boardValues[0][0] == 1 && boardValues[0][1] == 1 && boardValues[0][2] == 1){
       console.log("Player 1 wins");
     }
+    if (boardValues[1][0] == 1 && boardValues[1][1] == 1 && boardValues[1][2] == 1){
+      console.log("Player 1 wins");
+    }
+    if (boardValues[2][0] == 1 && boardValues[2][1] == 1 && boardValues[2][2] == 1){
+      console.log("Player 1 wins");
+    }
+
+    // three consecutive by columns for player 1
+    if (boardValues[0][0] == 1 && boardValues[1][0] == 1 && boardValues[2][0] == 1){
+      console.log("Player 1 wins");
+    }
+    if (boardValues[0][1] == 1 && boardValues[1][1] == 1 && boardValues[2][1] == 1){
+      console.log("Player 1 wins");
+    }
+    if (boardValues[0][2] == 1 && boardValues[1][2] == 1 && boardValues[2][2] == 1){
+      console.log("Player 1 wins");
+    }
+
+    // three consecutive by diagonals for player 1
+    if (boardValues[0][0] == 1 && boardValues[1][1] == 1 && boardValues[2][2] == 1){
+      console.log("Player 1 wins");
+    }
+    if (boardValues[0][2] == 1 && boardValues[1][1] == 1 && boardValues[2][0] == 1){
+      console.log("Player 1 wins");
+    }
+
+
 
 
     switchPlayerTurn();
