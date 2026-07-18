@@ -86,7 +86,16 @@ function GameController(
     let checkBoard = board.getBoard();
     // console.log(checkBoard);
 
-    console.log(checkBoard[0][0].getValue());
+    // console.log(checkBoard[0][0].getValue());
+    let boardValues = checkBoard.map((row) =>
+      row.map((cell) => cell.getValue())
+    );
+
+    console.log(boardValues);
+
+    if (boardValues[0][0] == 1 && boardValues[0][1] == 1 && boardValues[0][2] == 1){
+      console.log("Player 1 wins");
+    }
 
 
     switchPlayerTurn();
