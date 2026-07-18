@@ -82,10 +82,10 @@ function GameController(
 
     /*  This is where we would check for a winner and handle that logic,
           such as a win message. */
-    
-    board.printBoard() // we will use printBoard for applying logic.
-    
-    
+
+    let checkBoard = board.getBoard();
+    console.log(checkBoard);
+
     switchPlayerTurn();
     printNewRound();
   };
