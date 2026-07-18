@@ -1,7 +1,7 @@
 function Gameboard() {
   const rows = 3;
   const columns = 3;
-  const board = [];
+  let board = [];
 
   for (let i = 0; i < rows; i++) {
     board[i] = [];
@@ -27,7 +27,17 @@ function Gameboard() {
     console.log(boardWithCellValues);
   };
 
-  return { getBoard, inputMark, printBoard };
+  const resetBoard = () => {
+    board = [];
+    for (let i = 0; i < rows; i++) {
+    board[i] = [];
+    for (let j = 0; j < columns; j++) {
+      board[i].push(Cell());
+      }
+    }
+  }
+
+  return { getBoard, inputMark, printBoard, resetBoard };
 }
 
 function Cell() {
@@ -96,6 +106,7 @@ function GameController(
     // three consecutive by row for player 1
     if (boardValues[0][0] == 1 && boardValues[0][1] == 1 && boardValues[0][2] == 1){
       console.log("Player 1 wins");
+      board.resetBoard();
     }
     if (boardValues[1][0] == 1 && boardValues[1][1] == 1 && boardValues[1][2] == 1){
       console.log("Player 1 wins");
@@ -152,8 +163,6 @@ function GameController(
     if (boardValues[0][2] == 2 && boardValues[1][1] == 2 && boardValues[2][0] == 2){
       console.log("Player 2 wins");
     }
-
-
 
     switchPlayerTurn();
     printNewRound();
