@@ -123,6 +123,35 @@ function GameController(
       console.log("Player 1 wins");
     }
 
+    // three consecutive by row for player 2
+    if (boardValues[0][0] == 2 && boardValues[0][1] == 2 && boardValues[0][2] == 2){
+      console.log("Player 2 wins");
+    }
+    if (boardValues[1][0] == 2 && boardValues[1][1] == 2 && boardValues[1][2] == 2){
+      console.log("Player 2 wins");
+    }
+    if (boardValues[2][0] == 2 && boardValues[2][1] == 2 && boardValues[2][2] == 2){
+      console.log("Player 2 wins");
+    }
+
+    // three consecutive by columns for player 2
+    if (boardValues[0][0] == 2 && boardValues[1][0] == 2 && boardValues[2][0] == 2){
+      console.log("Player 2 wins");
+    }
+    if (boardValues[0][1] == 2 && boardValues[1][1] == 2 && boardValues[2][1] == 2){
+      console.log("Player 2 wins");
+    }
+    if (boardValues[0][2] == 2 && boardValues[1][2] == 2 && boardValues[2][2] == 2){
+      console.log("Player 2 wins");
+    }
+
+    // three consecutive by diagonals for player 2
+    if (boardValues[0][0] == 2 && boardValues[1][1] == 2 && boardValues[2][2] == 2){
+      console.log("Player 2 wins");
+    }
+    if (boardValues[0][2] == 2 && boardValues[1][1] == 2 && boardValues[2][0] == 2){
+      console.log("Player 2 wins");
+    }
 
 
 
