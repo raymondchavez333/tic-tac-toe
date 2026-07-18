@@ -84,7 +84,10 @@ function GameController(
           such as a win message. */
 
     let checkBoard = board.getBoard();
-    console.log(checkBoard);
+    // console.log(checkBoard);
+
+    console.log(checkBoard[0][0].getValue());
+
 
     switchPlayerTurn();
     printNewRound();
