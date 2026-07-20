@@ -13,8 +13,7 @@ function Gameboard() {
   const getBoard = () => board;
 
   const inputMark = (row, column, player) => {
-    // this is where I need to do
-    if(board[row][column].getValue() !== 0){
+    if(board[row][column].getValue() !== ""){
       return;
     }
     board[row][column].addMark(player);
@@ -41,7 +40,7 @@ function Gameboard() {
 }
 
 function Cell() {
-  let value = 0;
+  let value = "";
 
   const addMark = (player) => {
     value = player;
@@ -280,7 +279,7 @@ function ScreenController() {
     const selectedRow = e.target.dataset.row;
     // Make sure I've clicked a column and not the gaps in between
     if (!selectedColumn || !selectedRow) return;
-
+    if (e.target.textContent === "X" || e.target.textContent === "O") return;
     game.playRound(selectedRow, selectedColumn);
     updateScreen();
   }
