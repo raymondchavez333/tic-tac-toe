@@ -242,7 +242,9 @@ function GameController(
 }
 
 function ScreenController() {
-  const game = GameController();
+  let player1 = prompt("Please enter player1 name:", "Harry Potter");
+  let player2 = prompt("Please enter player2 name:", "Lord Voldemort");
+  const game = GameController(player1, player2);
   const playerTurnDiv = document.querySelector(".turn");
   const boardDiv = document.querySelector(".board");
 
