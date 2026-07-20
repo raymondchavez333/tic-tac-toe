@@ -101,89 +101,136 @@ function GameController(
       row.map((cell) => cell.getValue())
     );
 
-    console.log(boardValues);
+    // console.log(boardValues);
+
+    let totalFilled = 0;
+        boardValues.forEach((item) =>{
+          item.forEach((cell) => {
+            if(cell === 1 || cell === 2){
+              totalFilled++;
+            }
+          })
+        });
 
     // three consecutive by row for player 1
     if (boardValues[0][0] == 1 && boardValues[0][1] == 1 && boardValues[0][2] == 1){
       console.log("Player 1 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
-    if (boardValues[1][0] == 1 && boardValues[1][1] == 1 && boardValues[1][2] == 1){
+    else if (boardValues[1][0] == 1 && boardValues[1][1] == 1 && boardValues[1][2] == 1){
       console.log("Player 1 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
-    if (boardValues[2][0] == 1 && boardValues[2][1] == 1 && boardValues[2][2] == 1){
+    else if (boardValues[2][0] == 1 && boardValues[2][1] == 1 && boardValues[2][2] == 1){
       console.log("Player 1 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
 
     // three consecutive by columns for player 1
-    if (boardValues[0][0] == 1 && boardValues[1][0] == 1 && boardValues[2][0] == 1){
+    else if (boardValues[0][0] == 1 && boardValues[1][0] == 1 && boardValues[2][0] == 1){
       console.log("Player 1 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
-    if (boardValues[0][1] == 1 && boardValues[1][1] == 1 && boardValues[2][1] == 1){
+    else if (boardValues[0][1] == 1 && boardValues[1][1] == 1 && boardValues[2][1] == 1){
       console.log("Player 1 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
-    if (boardValues[0][2] == 1 && boardValues[1][2] == 1 && boardValues[2][2] == 1){
+    else if (boardValues[0][2] == 1 && boardValues[1][2] == 1 && boardValues[2][2] == 1){
       console.log("Player 1 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
 
     // three consecutive by diagonals for player 1
-    if (boardValues[0][0] == 1 && boardValues[1][1] == 1 && boardValues[2][2] == 1){
+    else if (boardValues[0][0] == 1 && boardValues[1][1] == 1 && boardValues[2][2] == 1){
       console.log("Player 1 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
-    if (boardValues[0][2] == 1 && boardValues[1][1] == 1 && boardValues[2][0] == 1){
+    else if (boardValues[0][2] == 1 && boardValues[1][1] == 1 && boardValues[2][0] == 1){
       console.log("Player 1 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
 
     // three consecutive by row for player 2
-    if (boardValues[0][0] == 2 && boardValues[0][1] == 2 && boardValues[0][2] == 2){
+    else if (boardValues[0][0] == 2 && boardValues[0][1] == 2 && boardValues[0][2] == 2){
       console.log("Player 2 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
-    if (boardValues[1][0] == 2 && boardValues[1][1] == 2 && boardValues[1][2] == 2){
+    else if (boardValues[1][0] == 2 && boardValues[1][1] == 2 && boardValues[1][2] == 2){
       console.log("Player 2 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
-    if (boardValues[2][0] == 2 && boardValues[2][1] == 2 && boardValues[2][2] == 2){
+    else if (boardValues[2][0] == 2 && boardValues[2][1] == 2 && boardValues[2][2] == 2){
       console.log("Player 2 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
 
     // three consecutive by columns for player 2
-    if (boardValues[0][0] == 2 && boardValues[1][0] == 2 && boardValues[2][0] == 2){
+    else if (boardValues[0][0] == 2 && boardValues[1][0] == 2 && boardValues[2][0] == 2){
       console.log("Player 2 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
-    if (boardValues[0][1] == 2 && boardValues[1][1] == 2 && boardValues[2][1] == 2){
+    else if (boardValues[0][1] == 2 && boardValues[1][1] == 2 && boardValues[2][1] == 2){
       console.log("Player 2 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
-    if (boardValues[0][2] == 2 && boardValues[1][2] == 2 && boardValues[2][2] == 2){
+    else if (boardValues[0][2] == 2 && boardValues[1][2] == 2 && boardValues[2][2] == 2){
       console.log("Player 2 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
 
     // three consecutive by diagonals for player 2
-    if (boardValues[0][0] == 2 && boardValues[1][1] == 2 && boardValues[2][2] == 2){
+    else if (boardValues[0][0] == 2 && boardValues[1][1] == 2 && boardValues[2][2] == 2){
       console.log("Player 2 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
-    if (boardValues[0][2] == 2 && boardValues[1][1] == 2 && boardValues[2][0] == 2){
+    else if (boardValues[0][2] == 2 && boardValues[1][1] == 2 && boardValues[2][0] == 2){
       console.log("Player 2 wins");
       board.resetBoard();
+      switchPlayerTurn();
+      printNewRound();
     }
+    else if (totalFilled === 9){
+      // Logic for a game tie
 
-    // Logic for a tie
-
-
-    switchPlayerTurn();
-    printNewRound();
+        console.log("Tie");
+          board.resetBoard();
+          switchPlayerTurn();
+          printNewRound();
+        
+    }else{
+      switchPlayerTurn();
+      printNewRound();
+    }
   };
 
   printNewRound();
