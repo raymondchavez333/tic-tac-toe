@@ -272,6 +272,7 @@ function ScreenController() {
   const playerTurnDiv = document.querySelector(".turn");
   const boardDiv = document.querySelector(".board");
   const results = document.querySelector(".results");
+  const restart = document.querySelector(".restart");
 
   const updateScreen = () => {
     // clear the board
@@ -313,6 +314,10 @@ function ScreenController() {
     updateScreen();
   }
   boardDiv.addEventListener("click", clickHandlerBoard);
+
+  restart.addEventListener("click", ()=> {
+    ScreenController();
+  });
 
   // Initial render
   updateScreen();
