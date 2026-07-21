@@ -83,6 +83,9 @@ function GameController(
     console.log(`${getActivePlayer().name}'s turn.`);
   };
 
+  let p1Score = 0;
+  let p2Score = 0;
+
   const playRound = (row, column) => {
     console.log(
       `Writing ${getActivePlayer().name}'s mark into row ${row} and column ${column}...`
@@ -114,18 +117,21 @@ function GameController(
     // three consecutive by row for player 1
     if (boardValues[0][0] == "X" && boardValues[0][1] == "X" && boardValues[0][2] == "X"){
       console.log("Player 1 wins");
+      p1Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
     }
     else if (boardValues[1][0] == "X" && boardValues[1][1] == "X" && boardValues[1][2] == "X"){
       console.log("Player 1 wins");
+      p1Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
     }
     else if (boardValues[2][0] == "X" && boardValues[2][1] == "X" && boardValues[2][2] == "X"){
       console.log("Player 1 wins");
+      p1Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
@@ -134,18 +140,21 @@ function GameController(
     // three consecutive by columns for player 1
     else if (boardValues[0][0] == "X" && boardValues[1][0] == "X" && boardValues[2][0] == "X"){
       console.log("Player 1 wins");
+      p1Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
     }
     else if (boardValues[0][1] == "X" && boardValues[1][1] == "X" && boardValues[2][1] == "X"){
       console.log("Player 1 wins");
+      p1Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
     }
     else if (boardValues[0][2] == "X" && boardValues[1][2] == "X" && boardValues[2][2] == "X"){
       console.log("Player 1 wins");
+      p1Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
@@ -154,12 +163,14 @@ function GameController(
     // three consecutive by diagonals for player 1
     else if (boardValues[0][0] == "X" && boardValues[1][1] == "X" && boardValues[2][2] == "X"){
       console.log("Player 1 wins");
+      p1Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
     }
     else if (boardValues[0][2] == "X" && boardValues[1][1] == "X" && boardValues[2][0] == "X"){
       console.log("Player 1 wins");
+      p1Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
@@ -168,18 +179,21 @@ function GameController(
     // three consecutive by row for player 2
     else if (boardValues[0][0] == "O" && boardValues[0][1] == "O" && boardValues[0][2] == "O"){
       console.log("Player 2 wins");
+      p2Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
     }
     else if (boardValues[1][0] == "O" && boardValues[1][1] == "O" && boardValues[1][2] == "O"){
       console.log("Player 2 wins");
+      p2Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
     }
     else if (boardValues[2][0] == "O" && boardValues[2][1] == "O" && boardValues[2][2] == "O"){
       console.log("Player 2 wins");
+      p2Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
@@ -188,18 +202,21 @@ function GameController(
     // three consecutive by columns for player 2
     else if (boardValues[0][0] == "O" && boardValues[1][0] == "O" && boardValues[2][0] == "O"){
       console.log("Player 2 wins");
+      p2Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
     }
     else if (boardValues[0][1] == "O" && boardValues[1][1] == "O" && boardValues[2][1] == "O"){
       console.log("Player 2 wins");
+      p2Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
     }
     else if (boardValues[0][2] == "O" && boardValues[1][2] == "O" && boardValues[2][2] == "O"){
       console.log("Player 2 wins");
+      p2Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
@@ -208,12 +225,14 @@ function GameController(
     // three consecutive by diagonals for player 2
     else if (boardValues[0][0] == "O" && boardValues[1][1] == "O" && boardValues[2][2] == "O"){
       console.log("Player 2 wins");
+      p2Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
     }
     else if (boardValues[0][2] == "O" && boardValues[1][1] == "O" && boardValues[2][0] == "O"){
       console.log("Player 2 wins");
+      p2Score++;
       board.resetBoard();
       switchPlayerTurn();
       printNewRound();
@@ -232,12 +251,17 @@ function GameController(
     }
   };
 
+  const getP1Score = () => p1Score;
+  const getP2Score = () => p2Score;
+
   printNewRound();
 
   return {
     playRound,
     getActivePlayer,
     getBoard: board.getBoard,
+    getP1Score,
+    getP2Score,
   };
 }
 
@@ -247,6 +271,7 @@ function ScreenController() {
   const game = GameController(player1, player2);
   const playerTurnDiv = document.querySelector(".turn");
   const boardDiv = document.querySelector(".board");
+  const results = document.querySelector(".results");
 
   const updateScreen = () => {
     // clear the board
@@ -273,6 +298,8 @@ function ScreenController() {
         boardDiv.appendChild(cellButton);
       });
     });
+
+    results.textContent = `${player1}: ${game.getP1Score()} ${player2}: ${game.getP2Score()}`;
   };
 
   // Add event listener for the board
